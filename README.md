@@ -1,8 +1,11 @@
 # cs254-03-groupproject-dvd
+
 cs254-03-groupproject-dvd created by GitHub Classroom
 
-How to use the program:
-Open the program, click start, make words out of the displayed letters. Complete the level. Once a level is completed a pass is
+Decription:
+A crossword puzzle display for the user so that they can guess the corresponding words. There will be approximate 10 levels. Each level has a different theme to make things more exciting and appealing for the users. 
+
+How to use the program;Open the program, click start, make words out of the displayed letters. Complete the level. Once a level is completed a pass is
 given in the form of a code for the next level. This pass can be used on the start page to jump levels immediately. Complete all levels 
 and win the satisfaction of beating our game. [May include story based levels for entertainment]
  
