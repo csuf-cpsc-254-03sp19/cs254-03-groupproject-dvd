@@ -3,14 +3,13 @@
 cs254-03-groupproject-dvd created by GitHub Classroom
  
 Decription:
-A crossword puzzle display for the user so that they can guess the corresponding words. There will be approximate 10 levels. Each level has a different theme to make things more exciting and appealing for the users. 
+A crossword puzzle game where the user can guess the corresponding words based off the underlined spaces. There will be approximate 3 levels. Each level has a different theme to make things more exciting and appealing for the users. 
 
-How to use the program;Open the program, click start, make words out of the displayed letters. Complete the level. Once a level is completed a pass is
-given in the form of a code for the next level. This pass can be used on the start page to jump levels immediately. Complete all levels 
-and win the satisfaction of beating our game. [May include story based levels for entertainment]
+How to use the program: open the program, click start, make words out of the displayed letters, and complete the level. 
+Once a level is completed a passcode is given for the next level. This passcode can be used on the start page to jump levels immediately. Complete all levels and win the satisfaction of beating our game. [May include story based levels for entertainment]
  
 Purpose:
-The user creates words out of provided letters intended to fit in the boxes placed thoughtout the level
+The user creates words out of provided letters intended to fit in the underlined spaces placed throughout the board
 
 Features:
 Utilizes an open source dictionary to confirm whether user input is a word.
