@@ -1,8 +1,12 @@
 1.	Viet Duong
 Daniel Evangelista
 David Laguna
-2.	We’re going to create the game users have to guess words based on a letter bank. There will be a crossword puzzle display for the user so that they can guess the corresponding words. There will be approximate 10 levels. Each level has a different theme to make things more exciting and appealing for the users.  
-3.	The goal is to make a single player game, to create words using a letter bank, and to pass the time while stimulating the user’s brain. 
+2.	We’re going to create the game users have to guess words based on a letter bank. There will be a crossword puzzle
+display for the user so that they can guess the corresponding words. There will be approximate 5 levels. Each level has a 
+different theme to make things more exciting and appealing for the users.  
+3.	The goal is to make a single player game, to create words using a letter bank, and to pass the time while 
+stimulating the user’s brain. 
 4.	We’re going to use GNU standard library, G++ compiler, GitHub, and Git.
-5.	We will be using functions from the G++ standard library and G++ compiler to create a game from scratch. We will be using GitHub and Git to record our work as we go. 
+5.	We will be using functions from the G++ standard library and G++ compiler to create a game from scratch. 
+We will be using GitHub and Git to record our work as we go. 
 6.	Our project will be made from scratch therefore all features will be new.
