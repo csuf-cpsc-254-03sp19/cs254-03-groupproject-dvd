@@ -41,6 +41,8 @@ int main()
 	test.add_word("apple", 4, 7, true);
 	test.add_word("apple", 4, 7, false);
 	test.print_board();
+	crossword cw;
+	cw.display();
 	test.print_user_board();
 	return 0;
 }
