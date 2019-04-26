@@ -34,17 +34,23 @@ public:
 	//False = down
 	void print_board();
 	void print_user_board();
+	void user_guess(crossword letter_box);
 };
+
+crossword_board user_guess(crossword_board the_board, crossword letter_box);
 
 int main()
 {
 	crossword_board test;
 	test.add_word("apple", 4, 7, true);
 	test.add_word("apple", 4, 7, false);
-	test.print_board();
 	crossword cw;
-	cw.display();
-	test.print_user_board();
+	for (int i = 0; i < 5; i++)
+	{
+		test.user_guess(cw);
+		cout << endl;
+	}
+	
 	return 0;
 }
 
@@ -161,4 +167,36 @@ void crossword_board::print_user_board()
 			}
 			cout << endl;
 		}
+}
+void crossword_board::user_guess(crossword letter_box)
+{
+	string guess;
+	bool correct_word = false;
+	
+	//displays board for the user
+	print_user_board();
+	letter_box.display();
+	cout << "Please enter in a word: ";
+	cin >> guess;
+	
+	//if they guess correctly changes is_guessed in the word_storage to true
+	for(int i = 0; i < word_bank_size; i++)
+	{
+		if(guess == word_storage[i].word)
+		{
+			word_storage[i].is_guessed = true;
+			correct_word = true;
+			cout << "test " << i << endl;
+			add_word(word_storage[i].word, word_storage[i].row_start, word_storage[i].col_start, word_storage[i].direction);
+		}
+	}
+	
+	if(correct_word == true)
+	{
+		cout << guess << " is a correct word" << endl;
+	}
+	else
+	{
+		cout << guess << " is an incorrect word" << endl;
+	}
 }
