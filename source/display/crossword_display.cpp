@@ -35,6 +35,8 @@ public:
 	void print_board();
 	void print_user_board();
 	void user_guess(crossword letter_box);
+	void user_add_word(string word, int row_start, int col_start, bool direction);
+	bool is_complete();
 };
 
 crossword_board user_guess(crossword_board the_board, crossword letter_box);
@@ -42,13 +44,14 @@ crossword_board user_guess(crossword_board the_board, crossword letter_box);
 int main()
 {
 	crossword_board test;
+	bool temp = false;
 	test.add_word("apple", 4, 7, true);
-	test.add_word("apple", 4, 7, false);
+	test.add_word("air", 4, 7, false);
 	crossword cw;
-	for (int i = 0; i < 5; i++)
+	while (temp == false)
 	{
 		test.user_guess(cw);
-		cout << endl;
+		temp = test.is_complete();
 	}
 	
 	return 0;
@@ -100,7 +103,7 @@ crossword_board::crossword_board()
 void crossword_board::add_word(string word, int row_start, int col_start, bool direction)
 {
 	int row_insert = row_start + 1;//since we have a box need to increment 1 over
-	int col_insert = col_start + 1;
+	int col_insert = 2 * col_start;
 	int word_length = word.length();
 	int current_letter = 0;
 	if (direction == false)//this stores for words that are down
@@ -114,12 +117,15 @@ void crossword_board::add_word(string word, int row_start, int col_start, bool d
 	}
 	else if (direction == true)
 	{
-		for (int i = col_insert; i < word_length + col_insert; i++)
+		for (int i = col_insert; i < 2 * word_length + col_insert; i++)
 		{
-			board[row_insert][i] = word[current_letter];
-			user_board[row_insert][i] = '_';//for every letter put into board we put a blank
-			current_letter++;
-		}
+			if(i%2 == 0)
+			{
+				board[row_insert][i] = word[current_letter];
+				user_board[row_insert][i] = '_';//for every letter put into board we put a blank
+				current_letter++;
+			}
+		}	
 	}
 	
 	//here we store the new word in the word bank array
@@ -186,8 +192,7 @@ void crossword_board::user_guess(crossword letter_box)
 		{
 			word_storage[i].is_guessed = true;
 			correct_word = true;
-			cout << "test " << i << endl;
-			add_word(word_storage[i].word, word_storage[i].row_start, word_storage[i].col_start, word_storage[i].direction);
+			user_add_word(word_storage[i].word, word_storage[i].row_start, word_storage[i].col_start, word_storage[i].direction);
 		}
 	}
 	
@@ -199,4 +204,45 @@ void crossword_board::user_guess(crossword letter_box)
 	{
 		cout << guess << " is an incorrect word" << endl;
 	}
+}
+
+void crossword_board::user_add_word(string word, int row_start, int col_start, bool direction)
+{
+	int row_insert = row_start + 1;//since we have a box need to increment 1 over
+	int col_insert = col_start * 2;
+	int word_length = word.length();
+	int current_letter = 0;
+	if (direction == false)//this stores for words that are down
+	{
+		for (int i = row_insert; i < word_length + row_insert; i++)
+		{
+			user_board[i][col_insert] = word[current_letter];
+			current_letter++;
+		}
+	}
+	else if (direction == true)
+	{
+		for (int i = col_insert; i < 2 * word_length + col_insert; i++)
+		{
+			if(i%2 == 0)
+			{
+				user_board[row_insert][i] = word[current_letter];
+				current_letter++;
+			}
+		}
+	}
+}
+
+bool crossword_board::is_complete()//determines if it is complete
+{
+	for(int i = 0; i < word_bank_size; i++)
+	{
+		if(word_storage[i].is_guessed == false)
+		{
+			return false;
+		}
+	}
+	print_board();
+	cout << "Congratulations the level is complete" << endl;
+	return true;
 }
