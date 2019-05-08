@@ -1,25 +1,25 @@
+#pragma once
 #include "crossword_display.h"
-#include <iostream>
 
-
-//level 1///////////////////////////////////////
-bool level1()
+//level 3///////////////////////////////////////
+bool level3()
 {
 	crossword_board test;
 	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
-	test.add_word("photon", 0, 3, false);
-	test.add_word("opt", 0, 2, true);
-	test.add_word("hoot", 2, 1, true);
-	test.add_word("hop", 2, 1, false);
-	test.add_word("photo", 4, 1, true);
-	test.add_word("hot", 3, 5, false);
-	test.add_word("hoop", 3, 5, true);
-	test.add_word("onto", 0, 7, false);
-	test.add_word("not", 1, 7, true);
-	std::cout << "To quit type in 'quit!'" << std::endl;
+	//false = vertical
+	//true = across
+	test.add_word("fitter", 0, 2, true);
+	test.add_word("fir", 0, 2, false);
+	test.add_word("tie", 0, 5, false);
+	test.add_word("rite", 2, 2, true);
+	test.add_word("tire", 2, 4, false);
+	test.add_word("trite", 5, 0, true);
+	test.add_word("fit", 3, 0, false);
+	test.add_word("rift", 4, 4, true);
+
 	int i = -1;
 	while (check_complete == false)
 	{
@@ -38,11 +38,11 @@ bool level1()
 		{
 			i = -1;
 		}
+		test.print_user_board(); //print the board again to make updates
 		if (word == "quit!")
 		{
 			return false;
 		}
-		check_complete = test.is_complete();
 	}
 	return true;
 }

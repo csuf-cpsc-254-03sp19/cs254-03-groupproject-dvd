@@ -18,6 +18,8 @@ public:
 	void display();
 	void display2();
 	void display3();
+	void display4();
+	void display5();
 };
 
 void crossword::display()
@@ -33,6 +35,16 @@ void crossword::display2() {
 }
 void crossword::display3() {
 	cout << "\n" << setw(7) << "-------letters available for level 3 -------" << endl;
+	cout << "the letter avaible is : k o s p t u \n";
+
+}
+void crossword::display4() {
+	cout << "\n" << setw(7) << "-------letters available for level 4 -------" << endl;
+	cout << "the letter avaible is : k o s p t u \n";
+
+}
+void crossword::display5() {
+	cout << "\n" << setw(7) << "-------letters available for level 5 -------" << endl;
 	cout << "the letter avaible is : k o s p t u \n";
 
 }

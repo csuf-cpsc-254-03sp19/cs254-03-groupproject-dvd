@@ -1,25 +1,23 @@
+#pragma once
 #include "crossword_display.h"
-#include <iostream>
 
-
-//level 1///////////////////////////////////////
-bool level1()
+//level 2///////////////////////////////////////
+bool level2()
 {
 	crossword_board test;
 	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
-	test.add_word("photon", 0, 3, false);
-	test.add_word("opt", 0, 2, true);
-	test.add_word("hoot", 2, 1, true);
-	test.add_word("hop", 2, 1, false);
-	test.add_word("photo", 4, 1, true);
-	test.add_word("hot", 3, 5, false);
-	test.add_word("hoop", 3, 5, true);
-	test.add_word("onto", 0, 7, false);
-	test.add_word("not", 1, 7, true);
-	std::cout << "To quit type in 'quit!'" << std::endl;
+	//false = vertical
+	//true = across
+	test.add_word("judged", 5, 0, true);
+	test.add_word("dud", 5, 2, false);
+	test.add_word("dude", 7, 2, true);
+	test.add_word("due", 5, 5, false);
+	test.add_word("judge", 0, 4, false);
+	test.add_word("jug", 0, 4, true);
+
 	int i = -1;
 	while (check_complete == false)
 	{
@@ -38,11 +36,11 @@ bool level1()
 		{
 			i = -1;
 		}
+		test.print_user_board(); //print the board again to make updates
 		if (word == "quit!")
 		{
 			return false;
 		}
-		check_complete = test.is_complete();
 	}
 	return true;
 }
