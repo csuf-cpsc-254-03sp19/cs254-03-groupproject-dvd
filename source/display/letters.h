@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 #include <iomanip>
@@ -12,41 +13,26 @@ class crossword
 {
 
 private:
-	//available letters 
-
-	char availLetters[2][11] = { {'a',' ', 'l',' ', 'e',' ', 'p',' ', 'p',' ','p'},
-	
-
-	 };
-	
 
 public:
-	void userDisplay();
 	void display();
-
+	void display2();
+	void display3();
 };
-void crossword::userDisplay()
-{
-	cout << "  ";
-	cout << endl;
-}
+
 void crossword::display()
 {
-	cout << "\n" << setw(7) << "-------letters available-------" << endl;
-	for (int i = 0; i < 2; i++)
+	cout << "\n" << setw(7) << "-------letters available for level 1 -------" << endl;
+	cout << "the letter avaible is : a e l p p \n";
 
-	{
+}
+void crossword::display2() {
+	cout << "\n" << setw(7) << "-------letters available for level 2 -------" << endl;
+	cout << "the letter avaible is : h o p t n \n";
 
-		for (int j = 0; j < 11; j++)
-
-		{
-
-			cout << availLetters[i][j];
-
-		}
-
-		cout << endl;
-
-	}
+}
+void crossword::display3() {
+	cout << "\n" << setw(7) << "-------letters available for level 3 -------" << endl;
+	cout << "the letter avaible is : k o s p t u \n";
 
 }
