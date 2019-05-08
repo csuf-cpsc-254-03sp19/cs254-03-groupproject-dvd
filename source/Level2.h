@@ -1,6 +1,5 @@
 #pragma once
 #include "crossword_display.h"
-#include "letters.h"
 
 //level 2///////////////////////////////////////
 bool level2()
