@@ -1,51 +1,89 @@
 #include <iostream>
 #include <string>
-#include "crossword_display.h"
-#include "letters.h"
+#include "Level1.h"
 
 using namespace std;
 
 int main()
 {
-	//level 1///////////////////////////////////////
-	crossword_board test;
-	cout << "Welcome to level 1\n";
-
-	test.add_word("photon", 0, 3, false);
-	test.add_word("opt", 0, 2, true);
-	test.add_word("hoot", 2, 1, true);
-	test.add_word("hop", 2, 1, false);
-	test.add_word("photo", 4, 1, true);
-	test.add_word("hot", 3, 5, false);
-	test.add_word("hoop", 3, 5, true);
-	test.add_word("onto", 0, 7, false);
-	test.add_word("not", 1, 7, true);
-	//test.print_board();
-	/////////////////////////////////////////////////
-
-	crossword cw;
-	string prevGuess[10];// declare previous guess into array of 10
-	string word;         //declare the word variable
-	crossword cd;
+	int user_input;
+	string level_code;
+	bool level_1_complete = false;
+	bool level_2_complete = false;
+	bool level_3_complete = false;
+	cout << "Welcome to Word Maker" << endl;
+	cout << endl;
+	cout << "1) Start New Game" << endl;
+	cout << "2) Enter in level code" << endl;
+	cout << "3) Exit" << endl;
+	cin >> user_input;
 	
-	for (int i = 0; i < 10; i++)
+	while(user_input < 1 || user_input > 3)
 	{
-		string word;
-		word = test.user_guess(cw);//return user guess word
-		prevGuess[i] = word;				// assign the variable word to array of previousGuess[]
-		cout << "Past attempts: ";	// showing the user pass attempt
-		for (int j = 0; j < 10; j++)
+		cout << "Error: Invalid input please try again: ";
+		cin >> user_input;
+	}
+	
+	while(user_input == 2)
+	{
+		cout << "Please enter in a level code: ";
+		cin >> level_code;
+		if(level_code == "level_2")
 		{
-			cout << prevGuess[j] << ' '; // return preGuess[j]
+			level_1_complete = true;
+			user_input = 1;
 		}
-		cout << "\n";
-		cout << endl;
-		if (i == 9)
+		else if(level_code == "level_3")
 		{
-			i = -1; // if the array is full, which is =10, it will now start from first index.
+			level_1_complete = true;
+			level_2_complete = true;
+			user_input = 1;
+		}
+		else
+		{
+			cout << "Error: Not a valid code" << endl;
+			cout << endl;
+			cout << "1) Start New Game" << endl;
+			cout << "2) Enter in level code" << endl;
+			cout << "3) Exit" << endl;
+			cin >> user_input;
+			while(user_input < 1 || user_input > 3)
+			{
+				cout << "Error: Invalid input please try again: ";
+				cin >> user_input;
+			}
 		}
 	}
-	cw.display();
-	test.print_user_board();
+	
+	if(user_input == 3)
+	{
+		cout << "Thank you for playing" << endl;
+		return 0;
+	}
+	while(level_1_complete == false)
+	{
+		level_1_complete = level1();
+		if(level_1_complete == false)
+		{
+			return 0;
+		}
+	}
+	/*while(level_2_complete == false)
+	{
+		level_2_complete = level_2();
+		if(level_2_complete == false)
+		{
+			return 0;
+		}
+	}
+	while(level_3_complete == false)
+	{
+		level_3_complete = level_3();
+		if(level_3_complete == false)
+		{
+			return 0;
+		}
+	}*/
+	
 	return 0;
 }

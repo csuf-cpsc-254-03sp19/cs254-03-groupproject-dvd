@@ -1,6 +1,5 @@
-#pragma once
 #include "crossword_display.h"
-#include "letters.h"
+#include <iostream>
 
 //level 1///////////////////////////////////////
 bool level1()
@@ -19,7 +18,7 @@ bool level1()
 	test.add_word("hoop", 3, 5, true);
 	test.add_word("onto", 0, 7, false);
 	test.add_word("not", 1, 7, true);
-
+	std::cout << "To quit type in 'quit!'" << std::endl;
 	int i = -1;
 	while (check_complete == false)
 	{
@@ -38,11 +37,11 @@ bool level1()
 		{
 			i = -1;
 		}
-		test.print_user_board(); //print the board again to make updates
 		if (word == "quit!")
 		{
 			return false;
 		}
+		check_complete = test.is_complete();
 	}
 	return true;
 }
