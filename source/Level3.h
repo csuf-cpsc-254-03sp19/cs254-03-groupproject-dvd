@@ -1,8 +1,8 @@
 #pragma once
 #include "crossword_display.h"
 
-//level 2///////////////////////////////////////
-bool level2()
+//level 3///////////////////////////////////////
+bool level3()
 {
 	crossword_board test;
 	crossword cw;
