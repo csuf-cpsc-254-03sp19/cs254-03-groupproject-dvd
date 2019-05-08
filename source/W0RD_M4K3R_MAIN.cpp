@@ -27,11 +27,7 @@ int main()
 	string prevGuess[10];// declare previous guess into array of 10
 	string word;         //declare the word variable
 	crossword cd;
-	//cd.display();		//display the available letters
-	//cd.display2();
-	//cd.display3();
-	//<= WORSE CASE SCENARIOO PUT THE FOR LOOP IN PREVIOUSGUESS() HERE
-	//previousGuess(cw, prevGuess, test); //DELETE THIS IF YOU DO
+	
 	for (int i = 0; i < 10; i++)
 	{
 		string word;
