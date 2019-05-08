@@ -34,28 +34,10 @@ public:
 	//False = down
 	void print_board();
 	void print_user_board();
-	void user_guess(crossword letter_box);
+	stting user_guess(crossword letter_box);
 	void user_add_word(string word, int row_start, int col_start, bool direction);
 	bool is_complete();
 };
-
-crossword_board user_guess(crossword_board the_board, crossword letter_box);
-
-int main()
-{
-	crossword_board test;
-	bool temp = false;
-	test.add_word("apple", 4, 7, true);
-	test.add_word("air", 4, 7, false);
-	crossword cw;
-	while (temp == false)
-	{
-		test.user_guess(cw);
-		temp = test.is_complete();
-	}
-	
-	return 0;
-}
 
 crossword_board::crossword_board()
 {
@@ -174,7 +156,7 @@ void crossword_board::print_user_board()
 			cout << endl;
 		}
 }
-void crossword_board::user_guess(crossword letter_box)
+string crossword_board::user_guess(crossword letter_box)
 {
 	string guess;
 	bool correct_word = false;
@@ -204,6 +186,7 @@ void crossword_board::user_guess(crossword letter_box)
 	{
 		cout << guess << " is an incorrect word" << endl;
 	}
+	return guess;
 }
 
 void crossword_board::user_add_word(string word, int row_start, int col_start, bool direction)
