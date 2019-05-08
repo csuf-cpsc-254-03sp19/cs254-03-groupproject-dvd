@@ -43,10 +43,20 @@ crossword_board user_guess(crossword_board the_board, crossword letter_box);
 
 int main()
 {
+	//level 1///////////////////////////////////////
 	crossword_board test;
-	bool temp = false;
-	test.add_word("apple", 4, 7, true);
-	test.add_word("air", 4, 7, false);
+	test.add_word("photon", 0, 3, false);
+	test.add_word("opt", 0, 2, true);
+	test.add_word("hoot", 2, 1, true);
+	test.add_word("hop", 2, 1, false);
+	test.add_word("photo", 4, 1, true);
+	test.add_word("hot", 3, 5, false);
+	test.add_word("hoop", 3, 5, true);
+	test.add_word("onto", 0, 7, false);
+	test.add_word("not", 1, 7, true);
+	test.print_board();
+	/////////////////////////////////////////////////
+
 	crossword cw;
 	while (temp == false)
 	{
