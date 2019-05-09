@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Level1.h"
+#include "Level2.h"
 
 using namespace std;
 
@@ -68,7 +69,7 @@ int main()
 			return 0;
 		}
 	}
-	/*while(level_2_complete == false)
+	while(level_2_complete == false)
 	{
 		level_2_complete = level_2();
 		if(level_2_complete == false)
@@ -76,6 +77,7 @@ int main()
 			return 0;
 		}
 	}
+	/*
 	while(level_3_complete == false)
 	{
 		level_3_complete = level_3();
