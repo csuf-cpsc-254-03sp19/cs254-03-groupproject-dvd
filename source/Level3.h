@@ -1,24 +1,28 @@
-#pragma once
 #include "crossword_display.h"
 
-//level 3///////////////////////////////////////
 bool level3()
 {
-	crossword_board test;
+	crossword_board level3;
 	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
+	cout << "Level 3 Return Code: level_3";
 	//false = vertical
 	//true = across
-	test.add_word("fitter", 0, 2, true);
-	test.add_word("fir", 0, 2, false);
-	test.add_word("tie", 0, 5, false);
-	test.add_word("rite", 2, 2, true);
-	test.add_word("tire", 2, 4, false);
-	test.add_word("trite", 5, 0, true);
-	test.add_word("fit", 3, 0, false);
-	test.add_word("rift", 4, 4, true);
+	level3.add_word("vector", 0, 2, true);
+	level3.add_word("tore", 0, 5, false);
+	level3.add_word("voter", 3, 2, true);
+	level3.add_word("core", 2, 3, false);
+	level3.add_word("cover", 5, 0, true);
+	level3.add_word("rot", 5, 4, false);
+	level3.add_word("ore", 6, 4, true);
+	level3.add_word("rove", 3, 6, false);
+	level3.add_word("vet", 5, 6, true);
+	level3.add_word("covet", 1, 8, false);
+	level3.add_word("cove", 1, 8, true);
+	level3.add_word("over", 0, 10, false);
+	level3.add_word("covert", 5, 0, false);
 
 	int i = -1;
 	while (check_complete == false)
@@ -26,7 +30,7 @@ bool level3()
 		string word;
 		i++;
 	
-		word = test.user_guess(cw);//check if user's word is on the board
+		word = level3.user_guess(cw);//check if user's word is on the board
 		prevGuess[i] = word;
 		cout << "Past attempts: ";
 		for (int j = 0; j < 10; j++)
@@ -38,12 +42,12 @@ bool level3()
 		{
 			i = -1;
 		}
-		test.print_user_board(); //print the board again to make updates
 		if (word == "quit!")
 		{
 			return false;
 		}
+		check_complete = level3.is_complete();
+
 	}
 	return true;
 }
-/////////////////////////////////////////////////
