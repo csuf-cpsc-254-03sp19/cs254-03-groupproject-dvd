@@ -1,4 +1,4 @@
-#include "crossword_display.h"
+#include <iostream>
 
 bool level3()
 {
@@ -7,22 +7,22 @@ bool level3()
 	string prevGuess[10];
 	bool check_complete = false;
 
-	cout << "Level 3 Return Code: level_3";
+	cout << "Level 3 Return Code: level_3" << endl;
 	//false = vertical
 	//true = across
-	level3.add_word("vector", 0, 2, true);
-	level3.add_word("tore", 0, 5, false);
-	level3.add_word("voter", 3, 2, true);
-	level3.add_word("core", 2, 3, false);
-	level3.add_word("cover", 5, 0, true);
-	level3.add_word("rot", 5, 4, false);
-	level3.add_word("ore", 6, 4, true);
-	level3.add_word("rove", 3, 6, false);
-	level3.add_word("vet", 5, 6, true);
-	level3.add_word("covet", 1, 8, false);
-	level3.add_word("cove", 1, 8, true);
-	level3.add_word("over", 0, 10, false);
-	level3.add_word("covert", 5, 0, false);
+	level3.add_word("vector", 0, 3, true);
+	level3.add_word("tore", 0, 6, false);
+	level3.add_word("voter", 3, 3, true);
+	level3.add_word("core", 2, 4, false);
+	level3.add_word("cover", 5, 1, true);
+	level3.add_word("rot", 5, 5, false);
+	level3.add_word("ore", 6, 5, true);
+	level3.add_word("rove", 3, 7, false);
+	level3.add_word("vet", 5, 7, true);
+	level3.add_word("covet", 1, 9, false);
+	level3.add_word("cove", 1, 9, true);
+	level3.add_word("over", 0, 11, false);
+	level3.add_word("covert", 5, 1, false);
 
 	int i = -1;
 	while (check_complete == false)

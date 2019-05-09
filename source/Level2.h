@@ -1,4 +1,4 @@
-#include "crossword_display.h"
+#include <iostream>
 
 bool level2()
 {
@@ -7,18 +7,18 @@ bool level2()
 	string prevGuess[10];
 	bool check_complete = false;
 
-	cout << "Level 2 Return Code: level_2"; //displays jump code for the user
+	cout << "Level 2 Return Code: level_2" << endl; //displays jump code for the user
 
 	//false = vertical
 	//true = across
-	level2.add_word("fitter", 0, 2, true);
-	level2.add_word("fir", 0, 2, false);
-	level2.add_word("tie", 0, 5, false);
-	level2.add_word("rite", 2, 2, true);
-	level2.add_word("tire", 2, 4, false);
-	level2.add_word("trite", 5, 0, true);
-	level2.add_word("fit", 3, 0, false);
-	level2.add_word("rift", 4, 4, true);
+	level2.add_word("fitter", 0, 3, true);
+	level2.add_word("fir", 0, 3, false);
+	level2.add_word("tie", 0, 6, false);
+	level2.add_word("rite", 2, 3, true);
+	level2.add_word("tire", 2, 5, false);
+	level2.add_word("trite", 5, 1, true);
+	level2.add_word("fit", 3, 1, false);
+	level2.add_word("rift", 4, 5, true);
 
 	int i = -1;
 	while (check_complete == false)

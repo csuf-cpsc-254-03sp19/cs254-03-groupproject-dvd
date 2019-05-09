@@ -72,7 +72,7 @@ int main()
 	}
 	while(level_2_complete == false)
 	{
-		level_2_complete = level_2();
+		level_2_complete = level2();
 		if(level_2_complete == false)
 		{
 			return 0;
@@ -80,7 +80,7 @@ int main()
 	}
 	while(level_3_complete == false)
 	{
-		level_3_complete = level_3();
+		level_3_complete = level3();
 		if(level_3_complete == false)
 		{
 			return 0;
