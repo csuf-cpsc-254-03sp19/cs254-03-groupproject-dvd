@@ -1,22 +1,24 @@
-#pragma once
 #include "crossword_display.h"
 
-//level 2///////////////////////////////////////
 bool level2()
 {
-	crossword_board test;
+	crossword_board level2;
 	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
+	cout << "Level 2 Return Code: level_2"; //displays jump code for the user
+
 	//false = vertical
 	//true = across
-	test.add_word("judged", 5, 0, true);
-	test.add_word("dud", 5, 2, false);
-	test.add_word("dude", 7, 2, true);
-	test.add_word("due", 5, 5, false);
-	test.add_word("judge", 0, 4, false);
-	test.add_word("jug", 0, 4, true);
+	level2.add_word("fitter", 0, 2, true);
+	level2.add_word("fir", 0, 2, false);
+	level2.add_word("tie", 0, 5, false);
+	level2.add_word("rite", 2, 2, true);
+	level2.add_word("tire", 2, 4, false);
+	level2.add_word("trite", 5, 0, true);
+	level2.add_word("fit", 3, 0, false);
+	level2.add_word("rift", 4, 4, true);
 
 	int i = -1;
 	while (check_complete == false)
@@ -24,24 +26,28 @@ bool level2()
 		string word;
 		i++;
 	
-		word = test.user_guess(cw);//check if user's word is on the board
-		prevGuess[i] = word;
+		word = level2.user_guess(cw);//check if user's word is on the board
+		prevGuess[i] = word; //stores user's guessed word
+
 		cout << "Past attempts: ";
 		for (int j = 0; j < 10; j++)
 		{
-			cout << prevGuess[j] << " ";
+			cout << prevGuess[j] << " "; //displays the user's past 10 guesses
 		}
+
 		cout << endl << endl;
+
 		if (i == 9) //resets i to start at first index for previously guessed
 		{
 			i = -1;
 		}
-		test.print_user_board(); //print the board again to make updates
-		if (word == "quit!")
+		if (word == "quit!") //quit option
 		{
 			return false;
 		}
+
+		check_complete = level2.is_complete(); //signals the end of the level
+
 	}
 	return true;
 }
-/////////////////////////////////////////////////
