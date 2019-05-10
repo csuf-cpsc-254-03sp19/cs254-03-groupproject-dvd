@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "letters.h"
+//#include "letters.h"
 
 using namespace std;
 
@@ -32,7 +32,7 @@ public:
 	//False = down
 	void print_board();
 	void print_user_board();
-	string user_guess(crossword letter_box);
+	string user_guess();
 	void user_add_word(string word, int row_start, int col_start, bool direction);
 	bool is_complete();
 };
@@ -154,14 +154,13 @@ void crossword_board::print_user_board()
 			cout << endl;
 		}
 }
-string crossword_board::user_guess(crossword letter_box)
+string crossword_board::user_guess()
 {
 	string guess;
 	bool correct_word = false;
 	
 	//displays board for the user
 	print_user_board();
-	letter_box.display();
 	cout << "Please enter in a word: ";
 	cin >> guess;
 	
