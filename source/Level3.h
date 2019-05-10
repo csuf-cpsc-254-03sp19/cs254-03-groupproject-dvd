@@ -1,9 +1,8 @@
 #include <iostream>
-
+#include <iomanip>
 bool level3()
 {
 	crossword_board level3;
-	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
@@ -24,14 +23,18 @@ bool level3()
 	level3.add_word("over", 0, 11, false);
 	level3.add_word("covert", 5, 1, false);
 
+	cout << "\n" << setw(7) << "-------letters available for level 3 -------" << endl;
+	cout << "The letters available are : r o c t v e \n";
+	std::cout << "To quit type in 'quit!'" << std::endl;
 	int i = -1;
 	while (check_complete == false)
 	{
 		string word;
 		i++;
 	
-		word = level3.user_guess(cw);//check if user's word is on the board
+		word = level3.user_guess();//check if user's word is on the board
 		prevGuess[i] = word;
+		cout << "\nThe letters available are : r o c t v e \n";
 		cout << "Past attempts: ";
 		for (int j = 0; j < 10; j++)
 		{
