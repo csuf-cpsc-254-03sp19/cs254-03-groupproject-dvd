@@ -1,12 +1,12 @@
 #include <iostream>
-
+#include <iomanip>
 bool level2()
 {
 	crossword_board level2;
-	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
+	
 	cout << "Level 2 Return Code: level_2" << endl; //displays jump code for the user
 
 	//false = vertical
@@ -20,15 +20,18 @@ bool level2()
 	level2.add_word("fit", 3, 1, false);
 	level2.add_word("rift", 4, 5, true);
 
+	cout << "\n" << setw(7) << "-------letters available for level 2 -------" << endl;
+	cout << "The letters available are : i t f t e r \n";
+	std::cout << "To quit type in 'quit!'" << std::endl;
 	int i = -1;
 	while (check_complete == false)
 	{
 		string word;
 		i++;
 	
-		word = level2.user_guess(cw);//check if user's word is on the board
+		word = level2.user_guess();//check if user's word is on the board
 		prevGuess[i] = word; //stores user's guessed word
-
+		cout << "\nThe letters available are : i t f t e r \n";
 		cout << "Past attempts: ";
 		for (int j = 0; j < 10; j++)
 		{
