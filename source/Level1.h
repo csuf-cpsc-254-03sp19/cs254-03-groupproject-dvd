@@ -1,12 +1,12 @@
 #include "crossword_display.h"
 #include <iostream>
+#include <iomanip>
 
 
 //level 1///////////////////////////////////////
 bool level1()
 {
 	crossword_board test;
-	crossword cw;
 	string prevGuess[10];
 	bool check_complete = false;
 
@@ -19,6 +19,10 @@ bool level1()
 	test.add_word("hoop", 3, 5, true);
 	test.add_word("onto", 0, 7, false);
 	test.add_word("not", 1, 7, true);
+
+	cout << "\n" << setw(7) << "-------letters available for level 1 -------" << endl;
+	cout << "The letters available are : o h o p t n \n";
+
 	std::cout << "To quit type in 'quit!'" << std::endl;
 	int i = -1;
 	while (check_complete == false)
@@ -26,8 +30,9 @@ bool level1()
 		string word;
 		i++;
 	
-		word = test.user_guess(cw);//check if user's word is on the board
+		word = test.user_guess();//check if user's word is on the board
 		prevGuess[i] = word;
+		cout << "\nThe letters available are : o h o p t n \n";
 		cout << "Past attempts: ";
 		for (int j = 0; j < 10; j++)
 		{
