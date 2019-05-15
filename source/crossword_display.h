@@ -4,11 +4,11 @@
 
 using namespace std;
 
-#define underline "\033[4m" 
+#define underline "\033[4m" //used for display of crossword
 #define stop_underline "\033[0m"
-#define max_words 100
+#define max_words 100 //max_words that are allowed in crossword
 
-struct word_bank
+struct word_bank//used to keep track of words that have been guessed
 {
 	string word;
 	int row_start;
@@ -26,15 +26,15 @@ private:
 	int word_bank_size;//used to keep track of how many words we have
 	
 public:
-	crossword_board();
+	crossword_board();//constructor
 	void add_word(string word, int row_start, int col_start, bool direction);
 	//row_start is which row the word begins in, for direction True = across
 	//False = down
-	void print_board();
-	void print_user_board();
-	string user_guess();
-	void user_add_word(string word, int row_start, int col_start, bool direction);
-	bool is_complete();
+	void print_board();//prints completed crossword
+	void print_user_board();//prints what words the user has already guessed
+	string user_guess();//asks user to guess the word
+	void user_add_word(string word, int row_start, int col_start, bool direction);//if user guessed correctly it adds word to user_board
+	bool is_complete();//checks if user has guessed every word
 };
 
 crossword_board::crossword_board()
@@ -90,7 +90,7 @@ void crossword_board::add_word(string word, int row_start, int col_start, bool d
 	{
 		for (int i = row_insert; i < word_length + row_insert; i++)
 		{
-			board[i][col_insert] = word[current_letter];
+			board[i][col_insert] = word[current_letter];//inserts letters into board
 			user_board[i][col_insert] = '_';//for every letter put into board we put a blank
 			current_letter++;
 		}
@@ -109,7 +109,6 @@ void crossword_board::add_word(string word, int row_start, int col_start, bool d
 	}
 	
 	//here we store the new word in the word bank array
-	//change names if u feel it is too confusing with same names
 	word_storage[word_bank_size].word = word;
 	word_storage[word_bank_size].row_start = row_start;
 	word_storage[word_bank_size].col_start = col_start;
@@ -123,20 +122,20 @@ void crossword_board::print_board()
 		{
 			for (int j = 0; j < 42; j++)
 			{
-				if (board[i][j] >= 97 && board[i][j] <= 122)
+				if (board[i][j] >= 97 && board[i][j] <= 122)//used to check if char in array is a letter
 				{
-					cout << underline << board[i][j];
+					cout << underline << board[i][j];//underlines letter
 				}
 				else
 				{
-					cout << stop_underline << board[i][j];
+					cout << stop_underline << board[i][j];//stops underlining empty spaces
 				}
 			}
 			cout << endl;
 		}
 }
 
-void crossword_board::print_user_board()
+void crossword_board::print_user_board()//prints what words the user has already guessed
 {
 	for (int i = 0; i < 22; i++)
 		{
@@ -157,7 +156,7 @@ void crossword_board::print_user_board()
 string crossword_board::user_guess()
 {
 	string guess;
-	bool correct_word = false;
+	bool correct_word = false;//flag for if guessed corectly
 	
 	//displays board for the user
 	print_user_board();
@@ -167,7 +166,7 @@ string crossword_board::user_guess()
 	//if they guess correctly changes is_guessed in the word_storage to true
 	for(int i = 0; i < word_bank_size; i++)
 	{
-		if(guess == word_storage[i].word)
+		if(guess == word_storage[i].word)//loops through the word bank to check if the word is in it
 		{
 			word_storage[i].is_guessed = true;
 			correct_word = true;
@@ -189,7 +188,7 @@ string crossword_board::user_guess()
 void crossword_board::user_add_word(string word, int row_start, int col_start, bool direction)
 {
 	int row_insert = row_start + 1;//since we have a box need to increment 1 over
-	int col_insert = col_start * 2;
+	int col_insert = col_start * 2;//want to have a space between letters horizantally so we double the number
 	int word_length = word.length();
 	int current_letter = 0;
 	if (direction == false)//this stores for words that are down
@@ -204,7 +203,7 @@ void crossword_board::user_add_word(string word, int row_start, int col_start, b
 	{
 		for (int i = col_insert; i < 2 * word_length + col_insert; i++)
 		{
-			if(i%2 == 0)
+			if(i%2 == 0)//used so it only prints on even values horizantally
 			{
 				user_board[row_insert][i] = word[current_letter];
 				current_letter++;
@@ -215,7 +214,7 @@ void crossword_board::user_add_word(string word, int row_start, int col_start, b
 
 bool crossword_board::is_complete()//determines if it is complete
 {
-	for(int i = 0; i < word_bank_size; i++)
+	for(int i = 0; i < word_bank_size; i++)//loops through word_bank to determine if every word has been guessed
 	{
 		if(word_storage[i].is_guessed == false)
 		{
